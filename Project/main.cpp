@@ -6,6 +6,9 @@ using namespace std;
 class Point {
 	int x, y;
 public:
+	Point() {
+		x = y = 0;
+	}
 
 	Point(int x, int y) {
 		this->x = x;
@@ -68,9 +71,29 @@ public:
 
 };
 
+class Rhombus : public Figure {
+	Point center;
+public:
+	Rhombus(Point center, const vector<Point> other) :Figure(other) {
+		this->center = center;
+	}
+
+	void print() override {
+		cout << "Rhombus:\n";
+		cout << "------------------------------------------------------------\n";
+		cout << "Center: \n"; 
+		center.print();
+		cout << "Other points: \n";
+		for (auto el : points)
+			el.print();
+		cout << "------------------------------------------------------------\n";
+	}
+
+};
+
 int main() {
-	const int size = 2;
-	Figure* figures[2]{ new Square({Point(1, 2), Point(3, 5), Point(1, 2), Point(5, 5)}), new Line(Point(1,2),Point(1,5)) };
+	const int size = 3;
+	Figure* figures[size]{ new Square({Point(1, 2), Point(1, 2), Point(2, 1), Point(2, 2)}), new Line(Point(1,2),Point(1,5)), new Rhombus(Point(0,0),{Point(0,1),Point(1,0),Point(-1,0),Point(0,-1)})};
 	for (int i = 0; i < size; i++)
 		figures[i]->print();
 	
