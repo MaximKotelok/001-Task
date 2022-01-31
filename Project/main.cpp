@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -16,10 +17,28 @@ public:
 	}
 };
 
-int main() {
-	Point one(1, 2);
-	one.print();
+class Figure{
+	vector<Point> points;
+public:
+	Figure(int size, Point p, ...) {
+		Point *ptr = &p;
+		while (size--) {
+			points.push_back(*ptr);
+			ptr++;
+		}
 
+	}
+
+	void print() {
+		for (auto el : points)
+			el.print();
+	}
+
+};
+
+int main() {
+	Figure f(4, Point( 1,2 ), Point(2,4 ), Point(4,3 ), Point(5,6 ));
+	f.print();
 
 	return 0;
 }
