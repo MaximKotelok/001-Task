@@ -18,8 +18,13 @@ public:
 };
 
 class Figure{
+protected:
 	vector<Point> points;
 public:
+	Figure(const vector<Point>& other) {
+		points = other;
+	}
+
 	Figure(int size, Point p, ...) {
 		Point *ptr = &p;
 		while (size--) {
@@ -29,8 +34,17 @@ public:
 
 	}
 
-	void print() {
-		cout << "------------------------------------------------------------\n";
+	virtual void print() = 0;
+
+};
+
+class Square : public Figure {
+public:
+	Square(const vector<Point> other) :Figure(other) {}
+
+	void print() override {
+		cout << "Square:\n";
+		cout<<"------------------------------------------------------------\n";
 		for (auto el : points)
 			el.print();
 		cout << "------------------------------------------------------------\n";
@@ -39,14 +53,10 @@ public:
 };
 
 int main() {
-	Figure f(4, Point( 1,2 ), Point(2,4 ), Point(4,3 ), Point(5,6 ));
-	f.print();
 
-	Figure f2(2, Point(5, 6), Point(5, 10));
-	f2.print();
+	Square s({ Point(1, 2), Point(3, 5), Point(1, 2), Point(5, 5) });
+	s.print();
 	
-	Figure f3(5, Point(5, 6), Point(6, 10), Point(10, 11), Point(2, 5), Point(1, 0) );
-	f3.print();
 
 	return 0;
 }
