@@ -1,0 +1,9 @@
+﻿  main.cpp
+  Menu.cpp
+  Shapes.cpp
+C:\Users\Maxim\source\repos\Project\Project\Shapes.cpp(27,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Maxim\source\repos\Project\Project\Shapes.cpp(56,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Maxim\source\repos\Project\Project\Shapes.cpp(90,20): warning C4018: '<': signed/unsigned mismatch
+C:\Users\Maxim\source\repos\Project\Project\Shapes.cpp(121,20): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  Project.vcxproj -> C:\Users\Maxim\source\repos\Project\Debug\Project.exe
